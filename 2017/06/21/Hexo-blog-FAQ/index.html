@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://cookcode.me/2017/06/21/Hexo-blog-FAQ/index.html">
 <meta property="og:site_name" content="煮代码么 Cook Code">
 <meta property="og:description" content="用Hexo和GitHub pages搭建个人独立博客遇到的坑。 Q: 怎么设置我的独立域名博客1) 注册一个你喜欢的域名，比如我在阿里云（万网）上注册了cookcode.me的域名 2) 注册一个GitHub账号，创建一个专门用来作博客的repository，比如:    123GitHub账号: cookcodeblog博客repository: cookcodeblog.github.io 3">
-<meta property="og:updated_time" content="2017-06-20T18:25:41.000Z">
+<meta property="og:updated_time" content="2017-06-20T18:34:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo blog FAQ">
 <meta name="twitter:description" content="用Hexo和GitHub pages搭建个人独立博客遇到的坑。 Q: 怎么设置我的独立域名博客1) 注册一个你喜欢的域名，比如我在阿里云（万网）上注册了cookcode.me的域名 2) 注册一个GitHub账号，创建一个专门用来作博客的repository，比如:    123GitHub账号: cookcodeblog博客repository: cookcodeblog.github.io 3">
@@ -191,11 +191,11 @@
 <p>2) 注册一个GitHub账号，创建一个专门用来作博客的repository，比如:</p>
    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">GitHub账号: cookcodeblog</div><div class="line"></div><div class="line">博客repository: cookcodeblog.github.io</div></pre></td></tr></table></figure>
 <p>3) 在阿里云（万网）上设置域名解析:</p>
-   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">A </div><div class="line">     192.30.252.154</div><div class="line">     192.30.252.153</div><div class="line"></div><div class="line">CNAME</div><div class="line">   www</div><div class="line">    cookcodeblog.github.io</div></pre></td></tr></table></figure>
-<p>4) 在GitHub上点击<code>repository</code> -&gt; <code>settings</code>, 拉到 GitHub Pages的地方可以对 custom page。</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">A </div><div class="line">     192.30.252.154</div><div class="line">     192.30.252.153</div><div class="line"></div><div class="line">CNAME</div><div class="line">     www</div><div class="line">         cookcodeblog.github.io</div></pre></td></tr></table></figure>
+<p>4) 在GitHub上点击<code>repository</code> -&gt; <code>settings</code>, 拉到 GitHub Pages的地方可以对 custom domain。</p>
 <p>   <strong>坑： 清除浏览器数据后，这个设置就不起作用了！！</strong> </p>
 <p>5) 正确的做法是在hexo的<code>source</code>目录创建一个CNAME文件，输入域名，比如：<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cookcode.me</div></pre></td></tr></table></figure></p>
-<p>   再运行<code>hexo generate</code>后，这个CNAME文件会被部署到<code>public</code>目录，并且永久生效。</p>
+<p>   在运行<code>hexo generate</code>后，这个CNAME文件会被生成到<code>public</code>目录，在运行<code>hexo deploy</code>后，这个    CNAME文件会被部署到博客repository的<code>master</code>的根目录，并且永久生效。</p>
 
       
 
