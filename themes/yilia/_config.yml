@@ -2,7 +2,9 @@
 
 menu:
   主页: /
-  随笔: /tags/随笔/
+  做菜: /cook/
+  写码: /code/
+  随笔: /other/
 
 # SubNav
 subnav:
@@ -56,10 +58,10 @@ weixin:
 # Miscellaneous
 baidu_analytics: ''
 google_analytics: ''
-favicon: /favicon.png
+favicon: /favicon.ico
 
 #你的头像url
-avatar:
+avatar: /cooking.png
 
 #是否开启分享
 share_jia: true
@@ -103,11 +105,6 @@ smart_menu:
   aboutme: '关于我'
 
 friends:
-  友情链接1: http://localhost:4000/
-  友情链接2: http://localhost:4000/
-  友情链接3: http://localhost:4000/
-  友情链接4: http://localhost:4000/
-  友情链接5: http://localhost:4000/
-  友情链接6: http://localhost:4000/
+  万码堂: http://code10000.com
 
-aboutme: 很惭愧<br><br>只做了一点微小的工作<br>谢谢大家
+aboutme: 会做菜的程序员<br><br>会写代码的厨师

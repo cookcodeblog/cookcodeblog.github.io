@@ -3,16 +3,16 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle:
+title: 煮代码么 Cook Code 
+subtitle: 
 description:
-author: John Doe
+author: cookcode
 language:
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://cookcode.me
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -71,3 +71,22 @@ deploy:
   type: git
   repo: git@github.com:cookcodeblog/cookcodeblog.github.io.git
   branch: master
+
+jsonContent:
+    meta: false
+    pages: false
+    posts:
+      title: true
+      date: true
+      path: true
+      text: false
+      raw: false
+      content: false
+      slug: false
+      updated: false
+      comments: false
+      link: false
+      permalink: false
+      excerpt: false
+      categories: false
+      tags: true
