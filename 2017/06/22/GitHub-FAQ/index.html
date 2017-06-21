@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://cookcode.me/2017/06/22/GitHub-FAQ/index.html">
 <meta property="og:site_name" content="煮代码么 Cook Code">
 <meta property="og:description" content="使用GitHub过程中遇到的坑。">
-<meta property="og:updated_time" content="2017-06-21T16:34:32.000Z">
+<meta property="og:updated_time" content="2017-06-21T16:57:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GitHub FAQ">
 <meta name="twitter:description" content="使用GitHub过程中遇到的坑。">
@@ -188,7 +188,7 @@
       
         <p>使用GitHub过程中遇到的坑。</p>
 <a id="more"></a>
-<h1 id="Q-重启电脑后-Permission-denied-public-key"><a href="#Q-重启电脑后-Permission-denied-public-key" class="headerlink" title="Q: 重启电脑后 Permission denied (public key)"></a>Q: 重启电脑后 Permission denied (public key)</h1><p>1) 首先需要检查能不能ssh到GitHub</p>
+<h3 id="Q-重启电脑后-Permission-denied-public-key"><a href="#Q-重启电脑后-Permission-denied-public-key" class="headerlink" title="Q: 重启电脑后 Permission denied (public key)"></a>Q: 重启电脑后 Permission denied (public key)</h3><p>1) 首先需要检查能不能ssh到GitHub</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -vT git@github.com</div></pre></td></tr></table></figure>
 <p>2) 如果不能，需要检查GitHub账号上的SSH key是不是已经设置正确</p>
 <p>3) 如果本机SSH private key文件名不是默认的id_rsa，需要检查SSH agent中是否已经有了需要用到的私钥</p>
