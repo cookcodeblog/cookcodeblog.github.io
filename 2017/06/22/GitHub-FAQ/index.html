@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://cookcode.me">
-  <title>other | 煮代码么 Cook Code</title>
+  <title>GitHub FAQ | 煮代码么 Cook Code</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="other">
-<meta property="og:url" content="http://cookcode.me/other/index.html">
+  <meta name="description" content="使用GitHub过程中遇到的坑。">
+<meta name="keywords" content="GitHub,Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GitHub FAQ">
+<meta property="og:url" content="http://cookcode.me/2017/06/22/GitHub-FAQ/index.html">
 <meta property="og:site_name" content="煮代码么 Cook Code">
-<meta property="og:updated_time" content="2017-06-20T17:35:18.000Z">
+<meta property="og:description" content="使用GitHub过程中遇到的坑。">
+<meta property="og:updated_time" content="2017-06-21T16:34:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="other">
+<meta name="twitter:title" content="GitHub FAQ">
+<meta name="twitter:description" content="使用GitHub过程中遇到的坑。">
   
     <link rel="alternative" href="/atom.xml" title="煮代码么 Cook Code" type="application/atom+xml">
   
@@ -162,27 +166,49 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-undefined" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-GitHub-FAQ" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      other
+      GitHub FAQ
     </h1>
   
 
         
-        <a href="/other/index.html" class="archive-article-date">
-  	<time datetime="2017-06-20T17:35:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-21</time>
+        <a href="/2017/06/22/GitHub-FAQ/" class="archive-article-date">
+  	<time datetime="2017-06-21T16:03:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>使用GitHub过程中遇到的坑。</p>
+<a id="more"></a>
+<h1 id="Q-重启电脑后-Permission-denied-public-key"><a href="#Q-重启电脑后-Permission-denied-public-key" class="headerlink" title="Q: 重启电脑后 Permission denied (public key)"></a>Q: 重启电脑后 Permission denied (public key)</h1><p>1) 首先需要检查能不能ssh到GitHub</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -vT git@github.com</div></pre></td></tr></table></figure>
+<p>2) 如果不能，需要检查GitHub账号上的SSH key是不是已经设置正确</p>
+<p>3) 如果本机SSH private key文件名不是默认的id_rsa，需要检查SSH agent中是否已经有了需要用到的私钥</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-add -l</div></pre></td></tr></table></figure>
+<p>4) 如果没有需要用到的私钥，需要添加指定的私钥</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-add ~/.ssh/id_rsa_xxx</div></pre></td></tr></table></figure>
+<p><strong>坑：这一步添加私钥，只在SSH agent当前进程中有效，当电脑重启后，这个设置就失效了!!</strong></p>
+<p>5) 为了避免每次重启电脑后失效，可以采取以下方法：</p>
+<p>a. 在本机~/.profile 或 ~/.bash_profile 或 ~/.bashrc (取决于本机用什么bash）中添加以下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-add ~/.ssh/id_rsa_xxx</div></pre></td></tr></table></figure>
+<p>再运行<code>source ~/.profile</code> (取决于本机用什么profile）</p>
+<p>但是这个只对terminal起作用，对IDE（比如Intellij）不起作用。</p>
+<p>b. 在Mac电脑上运行一下命令 (Windows上我没有测试过）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-add -K ~/.ssh/id_rsa_xxx</div></pre></td></tr></table></figure>
+<p>这个命令将指定的SSH private key添加到KeyChain中, 对terminal和IDE都起作用。</p>
+<p><em>References:</em></p>
+<p>[1] <a href="https://segmentfault.com/q/1010000000835302" target="_blank" rel="external">https://segmentfault.com/q/1010000000835302</a></p>
+<p>[2] <a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/" target="_blank" rel="external">https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/</a></p>
+<p>[3] <a href="https://help.github.com/articles/error-permission-denied-publickey/" target="_blank" rel="external">https://help.github.com/articles/error-permission-denied-publickey/</a></p>
+
       
 
       
@@ -211,7 +237,33 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">GitHub</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/随笔/" class="article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -261,7 +313,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://cookcode.me/other/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://cookcode.me/2017/06/22/GitHub-FAQ/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -273,6 +325,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2017/06/21/Hexo-blog-FAQ/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hexo blog FAQ</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 
 
@@ -306,7 +368,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
