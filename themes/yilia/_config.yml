@@ -2,9 +2,9 @@
 
 menu:
   主页: /
-  做菜: /cook/
-  写码: /code/
-  随笔: /other/
+  做菜: /categories/做菜/
+  写码: /categories/写码/
+  随笔: /categories/随笔/
 
 # SubNav
 subnav:

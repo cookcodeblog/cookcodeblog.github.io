@@ -9,7 +9,7 @@ categories: 随笔
 
 <!-- more -->
 
-# Q: 重启电脑后 Permission denied (public key) 
+### Q: 重启电脑后 Permission denied (public key) ###
 
 1) 首先需要检查能不能ssh到GitHub
 
