@@ -2,7 +2,7 @@
 title: GitHub FAQ
 date: 2017-06-22 00:03:29
 tags: [GitHub, Git]
-categories: 随笔
+categories: 写码
 ---
 
 使用GitHub过程中遇到的坑。
@@ -53,14 +53,16 @@ ssh-add -K ~/.ssh/id_rsa_xxx
 
 这个命令将指定的SSH private key添加到KeyChain中, 对terminal和IDE都起作用。
 
+[注] 今天电脑重启后，发现方法b还是不太靠谱，还是方法a好用 :(
 
-*References:*
 
-[1] https://segmentfault.com/q/1010000000835302
+> References:
 
-[2] https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
+* https://segmentfault.com/q/1010000000835302
 
-[3] https://help.github.com/articles/error-permission-denied-publickey/
+* https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
+
+* https://help.github.com/articles/error-permission-denied-publickey/
 
 
 
