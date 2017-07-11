@@ -146,6 +146,102 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Decode-Maven-password" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/11/Decode-Maven-password/">Decode Maven password</a>
+    </h1>
+  
+
+        
+        <a href="/2017/07/11/Decode-Maven-password/" class="archive-article-date">
+  	<time datetime="2017-07-11T14:44:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Maven通过<code>~/.m2</code>下的<code>settings.xml</code>和<code>settings-security.xml</code>来存储加密密码，在连接Nexus时，先解密<code>settings-security.xml</code>中的master的密码，再用master的明文密码去解密<code>settings.xml</code>中的Nexus的用户密码。</p>
+<p>Maven使用了<code>SHA-256</code>和<code>AES/CBC/PKCS5Padding</code>来计算哈希值和加密，从表面上好像很安全，其实不然，因为从理论上讲只要知道了<code>salt</code>, <code>key</code>和加密程序，就可以把密文解密出来。而<code>salt</code>, <code>key</code>和加密程序都定义在Maven用到的<code>org.sonatype.plexus.components.cipher</code>包中。</p>
+<p>Maven自己的官网<a href="https://maven.apache.org/guides/mini/guide-encryption.html" target="_blank" rel="external">Maven Encryption</a>上也写了以下提示：</p>
+<blockquote>
+<p>Also note that the encrypted passwords can be decrypted by someone that has the master password and settings security file. Keep this file secure (or stored separately) if you expect the possibility that the settings.xml file may be retrieved.</p>
+</blockquote>
+<p>只要知道了<code>settings.xml</code>和<code>settings-security.xml</code>的密文，很容易就可以使用<a href="https://github.com/jelmerk/maven-settings-decoder" target="_blank" rel="external">maven-settings-decoder</a>来解密出来。你也可以参考<code>maven-settings-decoder</code>开发一个Maven的plugin来专门解密Maven的密码。</p>
+<p>扩展阅读：</p>
+<ul>
+<li><a href="http://www.infoq.com/cn/articles/how-to-encrypt-the-user-password-correctly" target="_blank" rel="external">How to encrypt the user password correctly</a></li>
+<li><a href="https://maven.apache.org/guides/plugin/guide-java-plugin-development.html" target="_blank" rel="external">Develop Maven plugin</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Maven</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Nexus</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hash</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Decode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/写码/" class="article-tag-list-link color3">写码</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      <!-- <span id="busuanzi_container_page_pv" style="display:none">
+         阅读 <span id="busuanzi_value_page_pv"></span>
+      </span> -->
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/07/11/Decode-Maven-password/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-cksum-md5sum-sha1sum-sha256sum-in-Windows-Linux-Unix-and-OSX" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -980,85 +1076,6 @@
 
 
   
-    <article id="post-GitHub-FAQ" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/22/GitHub-FAQ/">GitHub FAQ</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/22/GitHub-FAQ/" class="archive-article-date">
-  	<time datetime="2017-06-21T16:03:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>使用GitHub过程中遇到的坑。</p>
-        
-          <a class="article-more-a" href="/2017/06/22/GitHub-FAQ/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">GitHub</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/写码/" class="article-tag-list-link color3">写码</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      <!-- <span id="busuanzi_container_page_pv" style="display:none">
-         阅读 <span id="busuanzi_value_page_pv"></span>
-      </span> -->
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/22/GitHub-FAQ/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1157,6 +1174,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Maven</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Nexus</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Bower</a>
               </li>
              
@@ -1169,15 +1194,27 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">NodeJS</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">GitHub</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1197,18 +1234,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">GitHub</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">gulp</a>
               </li>
              
@@ -1222,6 +1247,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Agile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hash</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Decode</a>
               </li>
             
             <div class="clearfix"></div>

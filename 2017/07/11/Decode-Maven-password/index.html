@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://cookcode.me">
-  <title>Browsersync FAQ | 煮代码么 Cook Code</title>
+  <title>Decode Maven password | 煮代码么 Cook Code</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Browsersync可以用来监控HTML, JS和CSS的改动，从而触发浏览器自动刷新，来帮助我们调试Web页面，节约时间 （因为每次都要按F5很烦）。 但是Browsersync也有一些坑需要注意。">
-<meta name="keywords" content="Browsersync,Intellij">
+  <meta name="description" content="Maven通过~/.m2下的settings.xml和settings-security.xml来存储加密密码，在连接Nexus时，先解密settings-security.xml中的master的密码，再用master的明文密码去解密settings.xml中的Nexus的用户密码。 Maven使用了SHA-256和AES/CBC/PKCS5Padding来计算哈希值和加密，从表面上好像很安全，">
+<meta name="keywords" content="Maven,Nexus,Hash,Decode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Browsersync FAQ">
-<meta property="og:url" content="http://cookcode.me/2017/06/29/Browsersync-FAQ/index.html">
+<meta property="og:title" content="Decode Maven password">
+<meta property="og:url" content="http://cookcode.me/2017/07/11/Decode-Maven-password/index.html">
 <meta property="og:site_name" content="煮代码么 Cook Code">
-<meta property="og:description" content="Browsersync可以用来监控HTML, JS和CSS的改动，从而触发浏览器自动刷新，来帮助我们调试Web页面，节约时间 （因为每次都要按F5很烦）。 但是Browsersync也有一些坑需要注意。">
-<meta property="og:updated_time" content="2017-06-28T16:29:23.000Z">
+<meta property="og:description" content="Maven通过~/.m2下的settings.xml和settings-security.xml来存储加密密码，在连接Nexus时，先解密settings-security.xml中的master的密码，再用master的明文密码去解密settings.xml中的Nexus的用户密码。 Maven使用了SHA-256和AES/CBC/PKCS5Padding来计算哈希值和加密，从表面上好像很安全，">
+<meta property="og:updated_time" content="2017-07-11T15:05:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Browsersync FAQ">
-<meta name="twitter:description" content="Browsersync可以用来监控HTML, JS和CSS的改动，从而触发浏览器自动刷新，来帮助我们调试Web页面，节约时间 （因为每次都要按F5很烦）。 但是Browsersync也有一些坑需要注意。">
+<meta name="twitter:title" content="Decode Maven password">
+<meta name="twitter:description" content="Maven通过~/.m2下的settings.xml和settings-security.xml来存储加密密码，在连接Nexus时，先解密settings-security.xml中的master的密码，再用master的明文密码去解密settings.xml中的Nexus的用户密码。 Maven使用了SHA-256和AES/CBC/PKCS5Padding来计算哈希值和加密，从表面上好像很安全，">
   
     <link rel="alternative" href="/atom.xml" title="煮代码么 Cook Code" type="application/atom+xml">
   
@@ -149,41 +149,37 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Browsersync-FAQ" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Decode-Maven-password" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Browsersync FAQ
+      Decode Maven password
     </h1>
   
 
         
-        <a href="/2017/06/29/Browsersync-FAQ/" class="archive-article-date">
-  	<time datetime="2017-06-28T16:00:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-29</time>
+        <a href="/2017/07/11/Decode-Maven-password/" class="archive-article-date">
+  	<time datetime="2017-07-11T14:44:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Browsersync可以用来监控HTML, JS和CSS的改动，从而触发浏览器自动刷新，来帮助我们调试Web页面，节约时间 （因为每次都要按<code>F5</code>很烦）。</p>
-<p>但是Browsersync也有一些<strong>坑</strong>需要注意。</p>
-<a id="more"></a>
-<h2 id="设置默认打开Google-Chrome"><a href="#设置默认打开Google-Chrome" class="headerlink" title="设置默认打开Google Chrome"></a>设置默认打开Google Chrome</h2><p>Windows上默认浏览器是IE，但是Web开发时用的是Google Chrome浏览器，可以通过以下设置Browsersync默认打开Google Chrome浏览器：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">browser: &quot;chrome&quot;</div></pre></td></tr></table></figure>
-<p><strong>[坑]</strong> <a href="https://www.browsersync.io/docs/options" target="_blank" rel="external">Browsersync Options</a>说明要设置成 <code>browser: &quot;google chrome&quot;</code>，但是这样在Windows下会报找不到google chrome的错</p>
-<h2 id="Browsersync-等了很久才重新加载"><a href="#Browsersync-等了很久才重新加载" class="headerlink" title="Browsersync 等了很久才重新加载"></a>Browsersync 等了很久才重新加载</h2><p>在Intellij上调试页面时，发现修改HTML文件后，Browersync等了差不多2分钟才reload。</p>
-<p>刚开始怀疑需要配置Browsersync时间间隔，后来才明白原来Intellij默认的自动保存的<code>safe write</code>模式会先将文件的改动写入到一个临时文件中，再保存到真正要改动的文件中。</p>
-<p>而Browsersync只能监控文件的改动（last modified time 或者 cksum），所以在Intellij真正写入到文件之前，Browsersync不会触发reload。</p>
-<p>解决方法超级简单：改动后按一下<code>ctrl</code> + <code>s</code>，让Intellj立即保存改动，就会立即触发Browsersync reload了。</p>
+        <p>Maven通过<code>~/.m2</code>下的<code>settings.xml</code>和<code>settings-security.xml</code>来存储加密密码，在连接Nexus时，先解密<code>settings-security.xml</code>中的master的密码，再用master的明文密码去解密<code>settings.xml</code>中的Nexus的用户密码。</p>
+<p>Maven使用了<code>SHA-256</code>和<code>AES/CBC/PKCS5Padding</code>来计算哈希值和加密，从表面上好像很安全，其实不然，因为从理论上讲只要知道了<code>salt</code>, <code>key</code>和加密程序，就可以把密文解密出来。而<code>salt</code>, <code>key</code>和加密程序都定义在Maven用到的<code>org.sonatype.plexus.components.cipher</code>包中。</p>
+<p>Maven自己的官网<a href="https://maven.apache.org/guides/mini/guide-encryption.html" target="_blank" rel="external">Maven Encryption</a>上也写了以下提示：</p>
 <blockquote>
-<p>Reference</p>
+<p>Also note that the encrypted passwords can be decrypted by someone that has the master password and settings security file. Keep this file secure (or stored separately) if you expect the possibility that the settings.xml file may be retrieved.</p>
 </blockquote>
+<p>只要知道了<code>settings.xml</code>和<code>settings-security.xml</code>的密文，很容易就可以使用<a href="https://github.com/jelmerk/maven-settings-decoder" target="_blank" rel="external">maven-settings-decoder</a>来解密出来。你也可以参考<code>maven-settings-decoder</code>开发一个Maven的plugin来专门解密Maven的密码。</p>
+<p>扩展阅读：</p>
 <ul>
-<li><a href="https://www.jetbrains.com/help/idea/saving-and-reverting-changes.html" target="_blank" rel="external">https://www.jetbrains.com/help/idea/saving-and-reverting-changes.html</a></li>
+<li><a href="http://www.infoq.com/cn/articles/how-to-encrypt-the-user-password-correctly" target="_blank" rel="external">How to encrypt the user password correctly</a></li>
+<li><a href="https://maven.apache.org/guides/plugin/guide-java-plugin-development.html" target="_blank" rel="external">Develop Maven plugin</a></li>
 </ul>
 
       
@@ -198,11 +194,19 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Browsersync</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Maven</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Intellij</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Nexus</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hash</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Decode</a>
         		</li>
       		
 		</ul>
@@ -272,7 +276,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://cookcode.me/2017/06/29/Browsersync-FAQ/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://cookcode.me/2017/07/11/Decode-Maven-password/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -286,18 +290,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/06/29/npm-FAQ/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          npm FAQ
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/06/28/Git-alias/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Git alias</div>
+    <a href="/2017/07/09/cksum-md5sum-sha1sum-sha256sum-in-Windows-Linux-Unix-and-OSX/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">cksum md5sum sha1sum sha256sum in Windows, Linux, Unix and OSX</div>
       <i class="icon-circle-right"></i>
     </a>
   

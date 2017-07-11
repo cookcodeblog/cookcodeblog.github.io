@@ -6,19 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://cookcode.me">
-  <title>Browsersync FAQ | 煮代码么 Cook Code</title>
+  <title>Category: 写码 | 煮代码么 Cook Code</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Browsersync可以用来监控HTML, JS和CSS的改动，从而触发浏览器自动刷新，来帮助我们调试Web页面，节约时间 （因为每次都要按F5很烦）。 但是Browsersync也有一些坑需要注意。">
-<meta name="keywords" content="Browsersync,Intellij">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Browsersync FAQ">
-<meta property="og:url" content="http://cookcode.me/2017/06/29/Browsersync-FAQ/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="煮代码么 Cook Code">
+<meta property="og:url" content="http://cookcode.me/categories/写码/page/2/index.html">
 <meta property="og:site_name" content="煮代码么 Cook Code">
-<meta property="og:description" content="Browsersync可以用来监控HTML, JS和CSS的改动，从而触发浏览器自动刷新，来帮助我们调试Web页面，节约时间 （因为每次都要按F5很烦）。 但是Browsersync也有一些坑需要注意。">
-<meta property="og:updated_time" content="2017-06-28T16:29:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Browsersync FAQ">
-<meta name="twitter:description" content="Browsersync可以用来监控HTML, JS和CSS的改动，从而触发浏览器自动刷新，来帮助我们调试Web页面，节约时间 （因为每次都要按F5很烦）。 但是Browsersync也有一些坑需要注意。">
+<meta name="twitter:title" content="煮代码么 Cook Code">
   
     <link rel="alternative" href="/atom.xml" title="煮代码么 Cook Code" type="application/atom+xml">
   
@@ -149,66 +144,56 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Browsersync-FAQ" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Browsersync FAQ
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/06/21/Hexo-blog-FAQ/" class="archive-article-date">
+  	<time datetime="2017-06-20T17:39:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-21</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/06/21/Hexo-blog-FAQ/">Hexo blog FAQ</a>
     </h1>
   
 
-        
-        <a href="/2017/06/29/Browsersync-FAQ/" class="archive-article-date">
-  	<time datetime="2017-06-28T16:00:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Browsersync可以用来监控HTML, JS和CSS的改动，从而触发浏览器自动刷新，来帮助我们调试Web页面，节约时间 （因为每次都要按<code>F5</code>很烦）。</p>
-<p>但是Browsersync也有一些<strong>坑</strong>需要注意。</p>
-<a id="more"></a>
-<h2 id="设置默认打开Google-Chrome"><a href="#设置默认打开Google-Chrome" class="headerlink" title="设置默认打开Google Chrome"></a>设置默认打开Google Chrome</h2><p>Windows上默认浏览器是IE，但是Web开发时用的是Google Chrome浏览器，可以通过以下设置Browsersync默认打开Google Chrome浏览器：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">browser: &quot;chrome&quot;</div></pre></td></tr></table></figure>
-<p><strong>[坑]</strong> <a href="https://www.browsersync.io/docs/options" target="_blank" rel="external">Browsersync Options</a>说明要设置成 <code>browser: &quot;google chrome&quot;</code>，但是这样在Windows下会报找不到google chrome的错</p>
-<h2 id="Browsersync-等了很久才重新加载"><a href="#Browsersync-等了很久才重新加载" class="headerlink" title="Browsersync 等了很久才重新加载"></a>Browsersync 等了很久才重新加载</h2><p>在Intellij上调试页面时，发现修改HTML文件后，Browersync等了差不多2分钟才reload。</p>
-<p>刚开始怀疑需要配置Browsersync时间间隔，后来才明白原来Intellij默认的自动保存的<code>safe write</code>模式会先将文件的改动写入到一个临时文件中，再保存到真正要改动的文件中。</p>
-<p>而Browsersync只能监控文件的改动（last modified time 或者 cksum），所以在Intellij真正写入到文件之前，Browsersync不会触发reload。</p>
-<p>解决方法超级简单：改动后按一下<code>ctrl</code> + <code>s</code>，让Intellj立即保存改动，就会立即触发Browsersync reload了。</p>
-<blockquote>
-<p>Reference</p>
-</blockquote>
-<ul>
-<li><a href="https://www.jetbrains.com/help/idea/saving-and-reverting-changes.html" target="_blank" rel="external">https://www.jetbrains.com/help/idea/saving-and-reverting-changes.html</a></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Browsersync</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Intellij</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">blog</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">GitHub</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -221,98 +206,20 @@
 	</div>
 
 
-      <!-- <span id="busuanzi_container_page_pv" style="display:none">
-         阅读 <span id="busuanzi_value_page_pv"></span>
-      </span> -->
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://cookcode.me/2017/06/29/Browsersync-FAQ/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/06/29/npm-FAQ/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          npm FAQ
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/06/28/Git-alias/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Git alias</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/categories/写码/">&laquo; Prev</a><a class="page-number" href="/categories/写码/">1</a><span class="page-number current">2</span>
+    </nav>
   
 
 
@@ -338,10 +245,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
-		isCategory: false,
+		isCategory: true,
 		open_in_new: false,
 		root: "/",
 		innerArchive: true,
