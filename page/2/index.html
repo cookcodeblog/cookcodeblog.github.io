@@ -146,6 +146,86 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Git-alias" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/28/Git-alias/">Git alias</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/28/Git-alias/" class="archive-article-date">
+  	<time datetime="2017-06-28T15:48:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>写码时，在Intellij里把Terminal设置成Git bash （Mac上不需要设置，所以说Mac用来写码就是happy），然后就可以在Terminal里面愉快的敲Git命令了。</p>
+<p>可以将常用的Git命令作为alias保存在<code>~/.profile</code> (取决于你用什么bash，比如我在Mac上用的是<code>zsh</code>，那么我的profile其实是<code>.zshrc</code>)，这样每次敲入命令时就可以少打点字，也可以作为一个备忘。</p>
+<blockquote>
+<p>懒惰是程序员的美德</p>
+</blockquote>
+<p>下面是我常用到的Git命令的alias：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># git alias</span></div><div class="line"><span class="built_in">alias</span> gs=<span class="string">'git status'</span></div><div class="line"><span class="built_in">alias</span> ga=<span class="string">'git add'</span></div><div class="line"><span class="built_in">alias</span> gc=<span class="string">'git commit -m'</span></div><div class="line"><span class="built_in">alias</span> gp=<span class="string">'git push origin'</span></div><div class="line"><span class="built_in">alias</span> gd=<span class="string">'git diff'</span></div><div class="line"><span class="comment"># switch to an existing branch</span></div><div class="line"><span class="built_in">alias</span> go=<span class="string">'git checkout'</span></div><div class="line"><span class="comment"># switch to a new branch</span></div><div class="line"><span class="built_in">alias</span> gob=<span class="string">'git checkout -b'</span></div><div class="line"><span class="built_in">alias</span> gl=<span class="string">'git log --graph --decorate --oneline'</span></div><div class="line"><span class="comment"># replace local file</span></div><div class="line"><span class="built_in">alias</span> gr=<span class="string">'git checkout --'</span></div></pre></td></tr></table></figure>
+<p>保存到profile文件后，记得运行<code>source ~/.profile</code> 来让设置在当前Terminal生效，或者重新开一下Terminal也可以。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/写码/" class="article-tag-list-link color3">写码</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      <!-- <span id="busuanzi_container_page_pv" style="display:none">
+         阅读 <span id="busuanzi_value_page_pv"></span>
+      </span> -->
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/28/Git-alias/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-不会做菜的程序员不是好的厨师" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -245,11 +325,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">GitHub</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">GitHub</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
         		</li>
       		
 		</ul>
@@ -473,11 +553,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Browsersync</a>
+                <a href="javascript:void(0)" class="js-tag color4">Intellij</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Intellij</a>
+                <a href="javascript:void(0)" class="js-tag color2">NodeJS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Browsersync</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -497,19 +585,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">NodeJS</a>
+                <a href="javascript:void(0)" class="js-tag color1">Scala</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color4">SBT</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">GitHub</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -518,10 +606,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">种豆芽</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -538,6 +622,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">sha256sum</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">种豆芽</a>
               </li>
              
               <li class="article-tag-list-item">
