@@ -146,6 +146,193 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-克鲁克斯辐射仪工作原理猜想" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/22/克鲁克斯辐射仪工作原理猜想/">克鲁克斯辐射仪工作原理猜想</a>
+    </h1>
+  
+
+        
+        <a href="/2017/07/22/克鲁克斯辐射仪工作原理猜想/" class="archive-article-date">
+  	<time datetime="2017-07-22T13:02:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>关于克鲁克斯辐射仪 Crookes Radiometer的几点猜想：</p>
+<p>Q: 如果是把容器内的空气全部抽走，叶子是否还会转？</p>
+<p>A: 根据Youtbe上的实验，在一个高度真空的容器中，无论光怎么照，叶子也不会转；一样的，如果容器内空气过多，叶子也不会转。从这点也可以得出结论：是容器内的空气作用于叶片，驱动叶片旋转；但是如果容器内空气过多，空气阻力过大，叶子也旋转不起来。</p>
+<p>Q: 如果在一个黑暗的房间里，用一个热源靠近辐射仪，叶子是否还会转？</p>
+<p>G: 我猜测还是会旋转的，因为是光和热源都是热辐射，都可以加热容器内的空气和叶片。</p>
+<p>Q: 如果冷却容器外壁，叶子是否还会转？</p>
+<p>A: 根据Youtbe上的实验，在没有强光照的情况下，冷却容器外壁后，叶子还是会旋转。</p>
+<p>Q: 如果容器内的叶子都是黑色，或者都是白色，叶子是否还会转？</p>
+<p>G: 我猜想叶子还是会旋转。</p>
+<p>Q: 如果在一个黑暗的房间里，用一束很细的激光灯光束照射在黑色叶片或白色叶片上，叶子是否还会转？</p>
+<p>G: 我猜想无论激光灯照射在黑色叶片还是白色叶片上，叶子都会旋转。</p>
+<p><strong>Related Articles</strong></p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Crookes_radiometer" target="_blank" rel="external">https://en.wikipedia.org/wiki/Crookes_radiometer</a></li>
+<li><a href="https://www.youtube.com/watch?v=r7NEI_C9Yh0" target="_blank" rel="external">Youtube: How a Crookes radiometer works</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Crookes Radiometer</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/写码/" class="article-tag-list-link color3">写码</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      <!-- <span id="busuanzi_container_page_pv" style="display:none">
+         阅读 <span id="busuanzi_value_page_pv"></span>
+      </span> -->
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/07/22/克鲁克斯辐射仪工作原理猜想/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-Install-Octave-in-Mac-OX-by-Homebrew" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/22/Install-Octave-in-Mac-OX-by-Homebrew/">Install Octave in Mac OX by Homebrew</a>
+    </h1>
+  
+
+        
+        <a href="/2017/07/22/Install-Octave-in-Mac-OX-by-Homebrew/" class="archive-article-date">
+  	<time datetime="2017-07-22T09:02:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I encounter below error when I am trying install <code>Octave</code> in my Mac OX by Homebrew:</p>
+<p><strong>“Not aviable formula arpack …”</strong></p>
+<p>It costs me much time :(</p>
+<p>The root cause is I use a China Homebrew mirror.</p>
+<p>Resolution:</p>
+<p>1) Run <code>brew doctor</code> to check if any brew setting is wrong.</p>
+<p>2) Change back to official homebrew if you use a mirror:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">git -C <span class="string">"/usr/local/Homebrew"</span> remote <span class="built_in">set</span>-url origin https://github.com/Homebrew/brew.git</div><div class="line"></div><div class="line"></div><div class="line">git -C <span class="string">"/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core"</span> remote <span class="built_in">set</span>-url origin https://github.com/Homebrew/homebrew-core.git</div></pre></td></tr></table></figure>
+<p>3) Connect with VPN</p>
+<p>4) Install xquartz</p>
+<p><a href="https://www.xquartz.org/" target="_blank" rel="external">https://www.xquartz.org/</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo ln -sf /Applications/Utilities/XQuartz.app/ /Applications/Utilities/X11.app</div><div class="line">setenv (<span class="string">"GNUTERM"</span>, <span class="string">"X11"</span>)</div></pre></td></tr></table></figure>
+<p>5) Run below commands:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">brew tap homebrew/science</div><div class="line">brew install gcc</div><div class="line">brew install octave</div></pre></td></tr></table></figure>
+<p>Run <code>brew info octave</code> to verify it is installed successfully.</p>
+<p><strong>Related Articles</strong></p>
+<ul>
+<li><a href="http://wiki.octave.org/Octave_for_MacOS_X#Package_Managers" target="_blank" rel="external">http://wiki.octave.org/Octave_for_MacOS_X#Package_Managers</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Octave</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Machine Learning</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Homebrew</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/写码/" class="article-tag-list-link color3">写码</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      <!-- <span id="busuanzi_container_page_pv" style="display:none">
+         阅读 <span id="busuanzi_value_page_pv"></span>
+      </span> -->
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/07/22/Install-Octave-in-Mac-OX-by-Homebrew/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-Setup-Scala-and-SBT-on-Windows" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -981,169 +1168,6 @@
 
 
   
-    <article id="post-npm-FAQ" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/29/npm-FAQ/">npm FAQ</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/29/npm-FAQ/" class="archive-article-date">
-  	<time datetime="2017-06-29T15:02:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>整理一些使用npm过程中遇到的<strong>坑</strong></p>
-        
-          <a class="article-more-a" href="/2017/06/29/npm-FAQ/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">npm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">gulp</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">PhantomJS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/写码/" class="article-tag-list-link color3">写码</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      <!-- <span id="busuanzi_container_page_pv" style="display:none">
-         阅读 <span id="busuanzi_value_page_pv"></span>
-      </span> -->
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/29/npm-FAQ/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-Browsersync-FAQ" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/29/Browsersync-FAQ/">Browsersync FAQ</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/29/Browsersync-FAQ/" class="archive-article-date">
-  	<time datetime="2017-06-28T16:00:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Browsersync可以用来监控HTML, JS和CSS的改动，从而触发浏览器自动刷新，来帮助我们调试Web页面，节约时间 （因为每次都要按<code>F5</code>很烦）。</p>
-<p>但是Browsersync也有一些<strong>坑</strong>需要注意。</p>
-        
-          <a class="article-more-a" href="/2017/06/29/Browsersync-FAQ/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Intellij</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Browsersync</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/写码/" class="article-tag-list-link color3">写码</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      <!-- <span id="busuanzi_container_page_pv" style="display:none">
-         阅读 <span id="busuanzi_value_page_pv"></span>
-      </span> -->
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/29/Browsersync-FAQ/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1258,10 +1282,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Browsersync</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Maven</a>
               </li>
              
@@ -1278,15 +1298,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Scala</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SBT</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">GitHub</a>
+                <a href="javascript:void(0)" class="js-tag color2">Browsersync</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1299,6 +1311,30 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">GitHub</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Octave</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Machine Learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Homebrew</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Scala</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SBT</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1318,15 +1354,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">种豆芽</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">gulp</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">PhantomJS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">种豆芽</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Crookes Radiometer</a>
               </li>
              
               <li class="article-tag-list-item">
