@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://cookcode.me">
-  <title>Tag: gulp | 煮代码么 Cook Code</title>
+  <title>Becaureful when use System.exit() | 煮代码么 Cook Code</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="煮代码么 Cook Code">
-<meta property="og:url" content="http://cookcode.me/tags/gulp/index.html">
+  <meta name="description" content="I am working on a system which uses many shell scripts to call Java class to generate reports. I found people even write System.exit() in a non-standalone program. 123456try &amp;#123;    // do something&amp;">
+<meta name="keywords" content="Syestem.exit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Becaureful when use System.exit()">
+<meta property="og:url" content="http://cookcode.me/2017/08/24/Becaureful-when-use-System-exit/index.html">
 <meta property="og:site_name" content="煮代码么 Cook Code">
+<meta property="og:description" content="I am working on a system which uses many shell scripts to call Java class to generate reports. I found people even write System.exit() in a non-standalone program. 123456try &amp;#123;    // do something&amp;">
+<meta property="og:updated_time" content="2017-08-24T04:23:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="煮代码么 Cook Code">
+<meta name="twitter:title" content="Becaureful when use System.exit()">
+<meta name="twitter:description" content="I am working on a system which uses many shell scripts to call Java class to generate reports. I found people even write System.exit() in a non-standalone program. 123456try &amp;#123;    // do something&amp;">
   
     <link rel="alternative" href="/atom.xml" title="煮代码么 Cook Code" type="application/atom+xml">
   
@@ -144,56 +149,64 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Becaureful-when-use-System-exit" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/29/npm-FAQ/" class="archive-article-date">
-  	<time datetime="2017-06-29T15:02:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-29</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/29/npm-FAQ/">npm FAQ</a>
+    <h1 class="article-title" itemprop="name">
+      Becaureful when use System.exit()
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/08/24/Becaureful-when-use-System-exit/" class="archive-article-date">
+  	<time datetime="2017-08-24T04:02:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I am working on a system which uses many shell scripts to call Java class to generate reports.</p>
+<p>I found people even write System.exit() in a non-standalone program.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">    <span class="comment">// do something</span></div><div class="line">&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">    <span class="comment">// print exeption</span></div><div class="line">    System.exit(<span class="number">1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>It is a bad pratice, because System.exit() will terminate current JVM process. </p>
+<p>The only place we should use System.exit() is when a standalone program (with main() method) is invoked by shell script. We can use System.exit(0) or System.exit(error_code) to notify shell script if the program execute successfuly or not. Because a new JVM process is created when the shell sciprt invokes this class, and when System.exit(), only terminate this JVM process without side effect.</p>
+<p>If we wrongly use System.exit() in a non-standalone program, e.g. in a web application java class, may termiante the Web server and Web application unexpectedly.</p>
+<p>The conculsion as below:</p>
+<ul>
+<li>We should do precondition check, let fail early</li>
+<li>We should handle the potential exceptions (log them, redo or do anotherhing or throw to higher level, etc)</li>
+<li>Only use System.exit() in a standalone program invoked by shell script</li>
+</ul>
+<blockquote>
+<p>References:</p>
+</blockquote>
+<ul>
+<li><a href="http://javarevisited.blogspot.ro/2014/11/dont-use-systemexit-on-java-web-application.html" target="_blank" rel="external">Don’t use System.exit() on Java Web Application</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">npm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">gulp</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">PhantomJS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Syestem.exit</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -206,17 +219,90 @@
 	</div>
 
 
+      <!-- <span id="busuanzi_container_page_pv" style="display:none">
+         阅读 <span id="busuanzi_value_page_pv"></span>
+      </span> -->
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://cookcode.me/2017/08/24/Becaureful-when-use-System-exit/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/07/22/克鲁克斯辐射仪工作原理猜想/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">克鲁克斯辐射仪工作原理猜想</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
+
+  
 
 
           </div>
@@ -241,9 +327,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",

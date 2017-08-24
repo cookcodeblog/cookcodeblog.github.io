@@ -146,6 +146,96 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Becaureful-when-use-System-exit" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/24/Becaureful-when-use-System-exit/">Becaureful when use System.exit()</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/24/Becaureful-when-use-System-exit/" class="archive-article-date">
+  	<time datetime="2017-08-24T04:02:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I am working on a system which uses many shell scripts to call Java class to generate reports.</p>
+<p>I found people even write System.exit() in a non-standalone program.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">    <span class="comment">// do something</span></div><div class="line">&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">    <span class="comment">// print exeption</span></div><div class="line">    System.exit(<span class="number">1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>It is a bad pratice, because System.exit() will terminate current JVM process. </p>
+<p>The only place we should use System.exit() is when a standalone program (with main() method) is invoked by shell script. We can use System.exit(0) or System.exit(error_code) to notify shell script if the program execute successfuly or not. Because a new JVM process is created when the shell sciprt invokes this class, and when System.exit(), only terminate this JVM process without side effect.</p>
+<p>If we wrongly use System.exit() in a non-standalone program, e.g. in a web application java class, may termiante the Web server and Web application unexpectedly.</p>
+<p>The conculsion as below:</p>
+<ul>
+<li>We should do precondition check, let fail early</li>
+<li>We should handle the potential exceptions (log them, redo or do anotherhing or throw to higher level, etc)</li>
+<li>Only use System.exit() in a standalone program invoked by shell script</li>
+</ul>
+<blockquote>
+<p>References:</p>
+</blockquote>
+<ul>
+<li><a href="http://javarevisited.blogspot.ro/2014/11/dont-use-systemexit-on-java-web-application.html" target="_blank" rel="external">Don’t use System.exit() on Java Web Application</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Syestem.exit</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/写码/" class="article-tag-list-link color3">写码</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      <!-- <span id="busuanzi_container_page_pv" style="display:none">
+         阅读 <span id="busuanzi_value_page_pv"></span>
+      </span> -->
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/24/Becaureful-when-use-System-exit/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-克鲁克斯辐射仪工作原理猜想" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1075,99 +1165,6 @@
 
 
   
-    <article id="post-Enable-Node-support-in-Intellij" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/29/Enable-Node-support-in-Intellij/">Enable Node support in Intellij</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/29/Enable-Node-support-in-Intellij/" class="archive-article-date">
-  	<time datetime="2017-06-29T15:32:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>安装<code>NodeJS</code>插件</li>
-<li>打开 File / Settings / Languages &amp; Frameworks / Node.js and NPM</li>
-<li>在Node Interpreter中选择正确版本的node.exe</li>
-<li>在Coding Assistance中<code>Enable</code> Node.js Core library</li>
-</ol>
-<p>如果第4步Enable Node.js Core library失败，可能是选择的Node版本Intellij还不支持，有一个临时解决方法:</p>
-<ol>
-<li>打开 File / Settings / Languages &amp; Frameworks / JavaScript / Libraries</li>
-<li>点击<code>Download</code>按钮</li>
-<li>在TypeScript community stubs下选择node</li>
-</ol>
-<p>这个临时解决方法的不好处就是每个project都需要重新设置一遍。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Intellij</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">NodeJS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">npm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/写码/" class="article-tag-list-link color3">写码</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      <!-- <span id="busuanzi_container_page_pv" style="display:none">
-         阅读 <span id="busuanzi_value_page_pv"></span>
-      </span> -->
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/29/Enable-Node-support-in-Intellij/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1266,7 +1263,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Bower</a>
+                <a href="javascript:void(0)" class="js-tag color3">Syestem.exit</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1279,6 +1276,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Browsersync</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1298,11 +1299,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Browsersync</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+                <a href="javascript:void(0)" class="js-tag color1">Bower</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1318,6 +1315,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Octave</a>
               </li>
              
@@ -1327,14 +1328,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Homebrew</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Scala</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SBT</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1354,15 +1347,23 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Scala</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SBT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">种豆芽</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">gulp</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">PhantomJS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">种豆芽</a>
               </li>
              
               <li class="article-tag-list-item">
